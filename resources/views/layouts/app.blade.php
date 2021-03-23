@@ -52,6 +52,13 @@
                                 </li>
                             @endif
                         @else
+                            @if (auth()->user()->is_admin == 1)
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('admin') }}">{{ __('Administration') }}</a>
+                                    </li>
+                                @endif
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
