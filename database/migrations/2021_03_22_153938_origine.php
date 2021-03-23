@@ -13,7 +13,7 @@ class Origine extends Migration
      */
     public function up()
     {
-        Schema::create('origine', function (Blueprint $table) {
+        Schema::create('origines', function (Blueprint $table) {
             $table->id('id_origine');
             $table->string('libelle');
             $table->timestamps();

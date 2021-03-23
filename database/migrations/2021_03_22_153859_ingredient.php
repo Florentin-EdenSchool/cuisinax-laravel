@@ -13,7 +13,7 @@ class Ingredient extends Migration
      */
     public function up()
     {
-        Schema::create('ingredient', function (Blueprint $table) {
+        Schema::create('ingredients', function (Blueprint $table) {
             $table->id('id_ingredient');
             $table->string('libelle');
             $table->timestamps();

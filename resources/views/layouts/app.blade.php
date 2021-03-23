@@ -52,6 +52,11 @@
                                 </li>
                             @endif
                         @else
+                            @if (Route::has('search'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('search') }}">{{ __('Rechercher') }}</a>
+                                </li>
+                            @endif
                             @if (auth()->user()->is_admin == 1)
                                 @if (Route::has('register'))
                                     <li class="nav-item">

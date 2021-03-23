@@ -13,7 +13,7 @@ class Panier extends Migration
      */
     public function up()
     {
-        Schema::create('panier', function (Blueprint $table) {
+        Schema::create('paniers', function (Blueprint $table) {
             $table->unsignedBigInteger('id_personne');
             $table->foreign('id_personne')
                 ->references('id')
@@ -23,7 +23,7 @@ class Panier extends Migration
             $table->unsignedBigInteger('id_plat');
             $table->foreign('id_plat')
                 ->references('id_plat')
-                ->on('plat')
+                ->on('plats')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->integer('quantite');

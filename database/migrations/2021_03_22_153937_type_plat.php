@@ -13,7 +13,7 @@ class TypePlat extends Migration
      */
     public function up()
     {
-        Schema::create('type_plat', function (Blueprint $table) {
+        Schema::create('type_plats', function (Blueprint $table) {
             $table->id('id_type_plat');
             $table->string('libelle');
             $table->timestamps();

@@ -13,17 +13,17 @@ class PlatIngredient extends Migration
      */
     public function up()
     {
-        Schema::create('plat_ingredient', function (Blueprint $table) {
+        Schema::create('plat_ingredients', function (Blueprint $table) {
             $table->unsignedBigInteger('id_plat');
             $table->foreign('id_plat')
                 ->references('id_plat')
-                ->on('plat')
+                ->on('plats')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->unsignedBigInteger('id_ingredient');
             $table->foreign('id_ingredient')
                 ->references('id_ingredient')
-                ->on('ingredient')
+                ->on('ingredients')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->timestamps();

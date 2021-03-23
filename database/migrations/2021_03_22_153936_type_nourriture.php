@@ -13,7 +13,7 @@ class TypeNourriture extends Migration
      */
     public function up()
     {
-        Schema::create('type_nourriture', function (Blueprint $table) {
+        Schema::create('type_nourritures', function (Blueprint $table) {
             $table->id('id_type_nourriture');
             $table->string('libelle');
             $table->timestamps();
