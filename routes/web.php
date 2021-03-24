@@ -17,7 +17,14 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/search', [App\Http\Controllers\PlatController::class, 'search'])->name('search')->middleware('auth');
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('search', [App\Http\Controllers\PlatController::class, 'index'])->name('index');
 
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin')->middleware('admin');
+//Administrateur
+Route::get('admin', [App\Http\Controllers\HomeController::class, 'adminIndex'])->name('admin')->middleware('admin');
+
+Route::post('store', [App\Http\Controllers\PlatController::class, 'store'])->name('plat.store')->middleware('admin');
+Route::post('storeOrigine', [App\Http\Controllers\PlatController::class, 'storeOrigine'])->name('plat.storeOrigine')->middleware('admin');
+Route::post('storeIngredient', [App\Http\Controllers\PlatController::class, 'storeIngredient'])->name('plat.storeIngredient')->middleware('admin');
+Route::post('storeTypePlat', [App\Http\Controllers\PlatController::class, 'storeTypePlat'])->name('plat.storeTypePlat')->middleware('admin');
+Route::post('storeTypeNourriture', [App\Http\Controllers\PlatController::class, 'storeTypeNourriture'])->name('plat.storeTypeNourriture')->middleware('admin');

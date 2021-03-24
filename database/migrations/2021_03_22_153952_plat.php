@@ -35,7 +35,7 @@ class Plat extends Migration
                 ->onUpdate('cascade');
             $table->integer('prix');
             $table->integer('poids');
-            $table->string('libelle');
+            $table->string('libelle_plat')->unique();
             $table->timestamps();
         });
     }

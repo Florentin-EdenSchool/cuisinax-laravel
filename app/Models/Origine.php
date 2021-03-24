@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Origine extends Model
 {
-    protected $fillable = ['id_origine', 'libelle'];
+    protected $fillable = ['id_origine', 'libelle_ingredient'];
+    protected $primaryKey = 'id_origine';
     use HasFactory;
 }

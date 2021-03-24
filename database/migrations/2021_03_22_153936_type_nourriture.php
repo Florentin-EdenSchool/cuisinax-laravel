@@ -15,7 +15,7 @@ class TypeNourriture extends Migration
     {
         Schema::create('type_nourritures', function (Blueprint $table) {
             $table->id('id_type_nourriture');
-            $table->string('libelle');
+            $table->string('libelle_type_nourriture')->unique();
             $table->timestamps();
         });
     }

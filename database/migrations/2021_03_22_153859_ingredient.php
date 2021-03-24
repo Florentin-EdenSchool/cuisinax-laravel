@@ -15,7 +15,7 @@ class Ingredient extends Migration
     {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id('id_ingredient');
-            $table->string('libelle');
+            $table->string('libelle_ingredient')->unique();
             $table->timestamps();
         });
     }

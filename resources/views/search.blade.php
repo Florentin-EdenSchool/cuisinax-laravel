@@ -16,7 +16,7 @@
                                 <div class="col-md-6">
                                     <select class="form-control" name="ingredient" required>
                                         @foreach ($ingredient as $ingredient)
-                                            <option value="{{ $ingredient->id_ingredient }}">{{ $ingredient->libelle }}</option>;
+                                            <option value="{{ $ingredient->id_ingredient }}">{{ $ingredient->libelle_ingredient }}</option>;
                                         @endforeach
                                     </select>
 

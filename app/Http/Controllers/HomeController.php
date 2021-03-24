@@ -3,31 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Plat;
+use App\Models\Ingredient;
+use App\Models\Origine;
+use App\Models\TypePlat;
+use App\Models\TypeNourriture;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    //Toute cette classe est réservée à une personne enregistrée
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    //Affichage de la page principale
     public function index()
     {
         return view('home');
     }
 
-    public function admin()
+    //Affichage page Administrateur
+    public function adminIndex()
     {
-        return view('admin.index');
+        $ingredient = Ingredient::all();
+        $origine = Origine::all();
+        $typeNourriture = TypeNourriture::all();
+        $typePlat = TypePlat::all();
+        return view('admin.index', compact('ingredient', 'origine', 'typeNourriture', 'typePlat'));
     }
 }

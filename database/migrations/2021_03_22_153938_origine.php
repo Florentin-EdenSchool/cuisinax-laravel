@@ -15,7 +15,7 @@ class Origine extends Migration
     {
         Schema::create('origines', function (Blueprint $table) {
             $table->id('id_origine');
-            $table->string('libelle');
+            $table->string('libelle_origine')->unique();
             $table->timestamps();
         });
     }

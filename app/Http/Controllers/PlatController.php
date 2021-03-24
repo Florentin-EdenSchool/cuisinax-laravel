@@ -2,93 +2,65 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\OrigineRequest;
+use App\Http\Requests\IngredientRequest;
+use App\Http\Requests\PlatRequest;
+use App\Http\Requests\TypeNourritureRequest;
+use App\Http\Requests\TypePlatRequest;
 use App\Models\Plat;
 use App\Models\Ingredient;
 use App\Models\Origine;
+use App\Models\TypePlat;
+use App\Models\TypeNourriture;
 
 class PlatController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    //Toute cette classe est réservée à une personne enregistrée
+    public function __construct()
     {
-        $plat = Plat::all();
-        return view('admin', compact('plat'));
+        $this->middleware('auth');
     }
 
-    public function search() {
+    //Affichage page principale de recherche
+    public function index()
+    {
         $ingredient = Ingredient::all();
         $origine = Origine::all();
         return view('search', compact('ingredient'), compact('origine'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    //Enregistrer le plat
+    public function store(PlatRequest $request)
     {
-        //
+        Plat::create($request->all());
+        return redirect()->route('admin')->with('info', 'Le plat a bien été créé');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    //Enregistrer l'origine
+    public function storeOrigine(OrigineRequest $request)
     {
-        //
+        Origine::create($request->all());
+        return redirect()->route('admin')->with('info', 'L\'origine a bien été créé');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    //Enregistrer l'ingrédient
+    public function storeIngredient(IngredientRequest $request)
     {
-        //
+        Ingredient::create($request->all());
+        return redirect()->route('admin')->with('info', 'L\'ingrédient a bien été créé');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    //Enregistrer le type du plat
+    public function storeTypePlat(TypePlatRequest $request)
     {
-        //
+        TypePlat::create($request->all());
+        return redirect()->route('admin')->with('info', 'Le type de plat a bien été créé');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    //Enregistrer le type de nourriture
+    public function storeTypeNourriture(TypeNourritureRequest $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        TypeNourriture::create($request->all());
+        return redirect()->route('admin')->with('info', 'Le type de nourriture a bien été créé');
     }
 }

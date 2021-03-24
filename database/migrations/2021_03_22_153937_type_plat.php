@@ -15,7 +15,7 @@ class TypePlat extends Migration
     {
         Schema::create('type_plats', function (Blueprint $table) {
             $table->id('id_type_plat');
-            $table->string('libelle');
+            $table->string('libelle_type_plat')->unique();
             $table->timestamps();
         });
     }
