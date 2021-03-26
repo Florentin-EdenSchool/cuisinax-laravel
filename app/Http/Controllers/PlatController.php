@@ -24,18 +24,6 @@ class PlatController extends Controller
         $this->middleware('auth');
     }
 
-    //Affichage page principale de recherche
-    public function index()
-    {
-        try {
-            $ingredient = Ingredient::all();
-            $origine = Origine::all();
-            return view('search', compact('ingredient'), compact('origine'));
-        } catch (Exception $error) {
-            return redirect()->route('admin')->with('danger', 'Une erreur est survenue : ' . $error);
-        }
-    }
-
     //Enregistrer le plat
     public function store(PlatRequest $request)
     {
@@ -123,7 +111,7 @@ class PlatController extends Controller
     {
         try {
             Ingredient::destroy($slug);
-            return redirect()->route('admin.list.ingredient')->with('success', 'L\'ingrédient a bien été supprimée');
+            return redirect()->route('admin.list.ingredient')->with('success', 'L\'ingrédient a bien été supprimée et tous les plats liés à cet ingrédient ont vu leur liaison retirée');
         } catch (Exception $error) {
             return redirect()->route('admin')->with('danger', 'Une erreur est survenue : ' . $error);
         }

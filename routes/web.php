@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+//**Utilisateur**
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('search', [App\Http\Controllers\PlatController::class, 'index'])->name('search');
+Route::get('search', [App\Http\Controllers\HomeController::class, 'searchIndex'])->name('search');
 
 //**Administrateur**
 

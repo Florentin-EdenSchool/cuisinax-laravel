@@ -99,7 +99,7 @@
                                 <div class="col-md-6">
                                     <select class="form-control" name="ingredient" required>
                                         @foreach ($origine as $origine)
-                                            <option value="{{ $origine->id_origine }}">{{ $origine->libelle }}</option>;
+                                            <option value="{{ $origine->id_origine }}">{{ $origine->libelle_origine }}</option>;
                                         @endforeach
                                     </select>
 

@@ -7,6 +7,7 @@ use App\Models\Ingredient;
 use App\Models\Origine;
 use App\Models\TypePlat;
 use App\Models\TypeNourriture;
+use Exception;
 
 class HomeController extends Controller
 {
@@ -20,6 +21,18 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    //Affichage page principale de recherche
+    public function searchIndex()
+    {
+        try {
+            $ingredient = Ingredient::all();
+            $origine = Origine::all();
+            return view('search', compact('ingredient'), compact('origine'));
+        } catch (Exception $error) {
+            return redirect()->route('admin')->with('danger', 'Une erreur est survenue : ' . $error);
+        }
     }
 
     //Affichage page Administrateur d'ajout

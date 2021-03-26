@@ -74,7 +74,7 @@
                             </div>
                         </form>
                         <p></p>
-                        <form action="{{ route('plat.storePlatIngredient') }}" method="POST">
+                        <form action="{{ route('plat.storeIngredient') }}" method="POST">
                             @csrf
                             <div class="form-group row">
                                 <label for="libelle_ingredient"
@@ -179,7 +179,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Poids') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="poids" type="text" class="form-control @error('poids') is-invalid @enderror"
+                                    <input id="poids" type="number" class="form-control @error('poids') is-invalid @enderror"
                                         name="poids" required autocomplete="current-poids">
 
                                     @error('poids')
@@ -193,7 +193,7 @@
                                 <label for="prix" class="col-md-4 col-form-label text-md-right">{{ __('Prix') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="prix" type="text" class="form-control @error('prix') is-invalid @enderror"
+                                    <input id="prix" type="number" class="form-control @error('prix') is-invalid @enderror"
                                         name="prix" required autocomplete="current-prix">
 
                                     @error('prix')
