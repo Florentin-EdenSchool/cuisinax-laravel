@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{ __('Rechercher') }}</div>
 
@@ -16,7 +16,8 @@
                                 <div class="col-md-6">
                                     <select class="form-control" name="ingredient" required>
                                         @foreach ($ingredient as $ingredient)
-                                            <option value="{{ $ingredient->id_ingredient }}">{{ $ingredient->libelle_ingredient }}</option>;
+                                            <option value="{{ $ingredient->id_ingredient }}">
+                                                {{ $ingredient->libelle_ingredient }}</option>;
                                         @endforeach
                                     </select>
 
@@ -99,7 +100,8 @@
                                 <div class="col-md-6">
                                     <select class="form-control" name="ingredient" required>
                                         @foreach ($origine as $origine)
-                                            <option value="{{ $origine->id_origine }}">{{ $origine->libelle_origine }}</option>;
+                                            <option value="{{ $origine->id_origine }}">{{ $origine->libelle_origine }}
+                                            </option>;
                                         @endforeach
                                     </select>
 
@@ -120,6 +122,44 @@
                             </div>
                         </form>
                     </div>
+                </div>
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">Plats</p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            <table class="table is-hoverable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Libelle</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($plat as $item)
+                                        <tr>
+                                            <td>{{ $item->id_plat }}</td>
+                                            <td><strong>{{ $item->libelle_plat }}</strong></td>
+                                            <td>
+                                                <form action="{{ route('plat.destroyPlat', $item->id_plat) }}"
+                                                    method="post">
+                                                    @csrf
+                                                    <button class="button btn-primary" type="submit">Ajouter</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        {{ $plat->links() }}
+                    </footer>
                 </div>
             </div>
         </div>

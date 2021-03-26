@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('search', [App\Http\Controllers\HomeController::class, 'searchIndex'])->name('search');
+Route::get('panier', [App\Http\Controllers\HomeController::class, 'panierIndex'])->name('panier');
 
 //**Administrateur**
 

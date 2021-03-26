@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<script src="{{ asset('js/script.js') }}" defer></script>
 
 @section('content')
     <div class="container">
@@ -18,35 +19,38 @@
                     <div class="card-header">{{ __('Administration') }}</div>
                     <h2 class="title">Listage</h2>
                     <div class="col-md-12" style="text-align: center;">
-                        <a href="{{ route('admin.list.origine') }}">
-                            <button class="btn btn-success">
+                        <button class="btn btn-success">
+                            <a href="{{ route('admin.list.origine') }}">
                                 {{ __('Origines') }}
-                            </button>
-                        </a>
-                        <a href="{{ route('admin.list.ingredient') }}">
-                            <button class="btn btn-success">
+                            </a>
+                        </button>
+                        <button class="btn btn-success">
+                            <a href="{{ route('admin.list.ingredient') }}">
                                 {{ __('Ingrédients') }}
-                            </button>
-                        </a>
-                        <a href="{{ route('admin.list.typenourriture') }}">
-                            <button class="btn btn-success">
+                            </a>
+                        </button>
+                        <button class="btn btn-success">
+                            <a href="{{ route('admin.list.typenourriture') }}">
                                 {{ __('Type Nourriture') }}
-                            </button>
-                        </a>
-                        <a href="{{ route('admin.list.typeplat') }}">
-                            <button class="btn btn-success">
+                            </a>
+                        </button>
+                        <button class="btn btn-success">
+                            <a href="{{ route('admin.list.typeplat') }}">
                                 {{ __('Type Plat') }}
-                            </button>
-                        </a>
-                        <a href="{{ route('admin.list.plat') }}">
-                            <button class="btn btn-success">
+                            </a>
+                        </button>
+                        <button class="btn btn-success">
+                            <a href="{{ route('admin.list.plat') }}">
                                 {{ __('Plat') }}
-                            </button>
-                        </a>
+                            </a>
+                        </button>
                     </div>
                     <div class="title-line"></div>
-
+                    <h2 class="title">Ajout</h2>
                     <div class="card-body">
+                        <button class="btn btn-success">
+                            {{ __('Origine') }}
+                        </button>
                         <form action="{{ route('plat.storeOrigine') }}" method="POST">
                             @csrf
                             <div class="form-group row">
@@ -74,6 +78,9 @@
                             </div>
                         </form>
                         <p></p>
+                        <button class="btn btn-success">
+                            {{ __('Ingrédient') }}
+                        </button>
                         <form action="{{ route('plat.storeIngredient') }}" method="POST">
                             @csrf
                             <div class="form-group row">
@@ -101,6 +108,9 @@
                             </div>
                         </form>
                         <p></p>
+                        <button class="btn btn-success">
+                            {{ __('Type Plat') }}
+                        </button>
                         <form action="{{ route('plat.storeTypePlat') }}" method="POST">
                             @csrf
                             <div class="form-group row">
@@ -128,6 +138,9 @@
                             </div>
                         </form>
                         <p></p>
+                        <button class="btn btn-success">
+                            {{ __('Type Nourriture') }}
+                        </button>
                         <form action="{{ route('plat.storeTypeNourriture') }}" method="POST">
                             @csrf
                             <div class="form-group row">
@@ -156,6 +169,9 @@
                             </div>
                         </form>
                         <p></p>
+                        <button class="btn btn-success">
+                            {{ __('Plat') }}
+                        </button>
                         <form action="{{ route('plat.store') }}" method="POST">
                             @csrf
                             <div class="form-group row">
@@ -179,8 +195,9 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Poids') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="poids" type="number" class="form-control @error('poids') is-invalid @enderror"
-                                        name="poids" required autocomplete="current-poids">
+                                    <input id="poids" type="number"
+                                        class="form-control @error('poids') is-invalid @enderror" name="poids" required
+                                        autocomplete="current-poids">
 
                                     @error('poids')
                                         <span class="invalid-feedback" role="alert">
@@ -272,6 +289,9 @@
                             </div>
                         </form>
                         <p></p>
+                        <button class="btn btn-success">
+                            {{ __('Liaison plat ingrédient ') }}
+                        </button>
                         <form action="{{ route('plat.storePlatIngredient') }}" method="POST">
                             @csrf
                             <div class="form-group row">

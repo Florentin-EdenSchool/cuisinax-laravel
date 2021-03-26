@@ -29,7 +29,21 @@ class HomeController extends Controller
         try {
             $ingredient = Ingredient::all();
             $origine = Origine::all();
-            return view('search', compact('ingredient'), compact('origine'));
+            $plat = Plat::paginate(10);
+            return view('search', compact('origine', 'ingredient', 'plat'));
+        } catch (Exception $error) {
+            return redirect()->route('admin')->with('danger', 'Une erreur est survenue : ' . $error);
+        }
+    }
+
+    //Affichage page du panier
+    public function panierIndex()
+    {
+        try {
+            $ingredient = Ingredient::all();
+            $origine = Origine::all();
+            $plat = Plat::paginate(10);
+            return view('panier', compact('origine', 'ingredient', 'plat'));
         } catch (Exception $error) {
             return redirect()->route('admin')->with('danger', 'Une erreur est survenue : ' . $error);
         }

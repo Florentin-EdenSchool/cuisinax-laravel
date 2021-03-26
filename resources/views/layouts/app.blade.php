@@ -12,14 +12,17 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}" />
 
     <!-- Styles -->
     <link href="{{ asset("css/app.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/style.css") }}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -60,6 +63,11 @@
                             @if (Route::has('search'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('search') }}">{{ __('Rechercher') }}</a>
+                                </li>
+                            @endif
+                            @if (Route::has('panier'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('panier') }}">{{ __('Panier') }}</a>
                                 </li>
                             @endif
                             @if (auth()->user()->is_admin == 1)

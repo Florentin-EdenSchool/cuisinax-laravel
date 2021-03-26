@@ -83,13 +83,16 @@ class PlatController extends Controller
     public function storePlatIngredient(PlatIngredientRequest $request)
     {
         try {
+            //Vérifier si l'ingrédient est déjà lié au plat
             $result = PlatIngredient::where('id_ingredient', $request->input('id_ingredient'))->get();
             $result = PlatIngredient::where('id_plat', $request->input('id_plat'))->get();
 
+            //Si non
             if (sizeof($result) == 0) {
                 PlatIngredient::create($request->all());
                 return redirect()->route('admin')->with('success', 'La liaison du plat et l\'ingrédient a bien été créée');
-            } else return redirect()->route('admin')->with('danger', 'Ce plat est déjà lié à cet ingrédient');
+            } //Si oui
+            else return redirect()->route('admin')->with('danger', 'Ce plat est déjà lié à cet ingrédient');
         } catch (Exception $error) {
             return redirect()->route('admin')->with('danger', 'Une erreur est survenue : ' . $error);
         }
@@ -100,7 +103,7 @@ class PlatController extends Controller
     {
         try {
             Origine::destroy($slug);
-            return redirect()->route('admin.list.origine')->with('success', 'L\'origine a bien été supprimée');
+            return redirect()->route('admin.list.origine')->with('success', 'L\'origine a bien été supprimée et tous les plats qui avaient cette origine avec');
         } catch (Exception $error) {
             return redirect()->route('admin')->with('danger', 'Une erreur est survenue : ' . $error);
         }
@@ -122,7 +125,7 @@ class PlatController extends Controller
     {
         try {
             TypeNourriture::destroy($slug);
-            return redirect()->route('admin.list.typenourriture')->with('success', 'Le type de nourriture a bien été supprimée');
+            return redirect()->route('admin.list.typenourriture')->with('success', 'Le type de nourriture a bien été supprimée et tous les plats qui avaient ce type avec');
         } catch (Exception $error) {
             return redirect()->route('admin')->with('danger', 'Une erreur est survenue : ' . $error);
         }
@@ -133,7 +136,7 @@ class PlatController extends Controller
     {
         try {
             TypePlat::destroy($slug);
-            return redirect()->route('admin.list.typeplat')->with('success', 'Le type de plat a bien été supprimée');
+            return redirect()->route('admin.list.typeplat')->with('success', 'Le type de plat a bien été supprimée et tous les plats qui avaient ce type avec');
         } catch (Exception $error) {
             return redirect()->route('admin')->with('danger', 'Une erreur est survenue : ' . $error);
         }
