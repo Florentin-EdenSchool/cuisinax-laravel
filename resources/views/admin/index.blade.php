@@ -16,11 +16,35 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{ __('Administration') }}</div>
-                    <a href="{{ route('admin.list') }}" style="text-align: center; margin-top: 25px;">
-                        <button type="submit" class="btn btn-success">
-                            {{ __('Accéder à la page de listage') }}
-                        </button>
-                    </a>
+                    <h2 class="title">Listage</h2>
+                    <div class="col-md-12" style="text-align: center;">
+                        <a href="{{ route('admin.list.origine') }}">
+                            <button class="btn btn-success">
+                                {{ __('Origines') }}
+                            </button>
+                        </a>
+                        <a href="{{ route('admin.list.ingredient') }}">
+                            <button class="btn btn-success">
+                                {{ __('Ingrédients') }}
+                            </button>
+                        </a>
+                        <a href="{{ route('admin.list.typenourriture') }}">
+                            <button class="btn btn-success">
+                                {{ __('Type Nourriture') }}
+                            </button>
+                        </a>
+                        <a href="{{ route('admin.list.typeplat') }}">
+                            <button class="btn btn-success">
+                                {{ __('Type Plat') }}
+                            </button>
+                        </a>
+                        <a href="{{ route('admin.list.plat') }}">
+                            <button class="btn btn-success">
+                                {{ __('Plat') }}
+                            </button>
+                        </a>
+                    </div>
+                    <div class="title-line"></div>
 
                     <div class="card-body">
                         <form action="{{ route('plat.storeOrigine') }}" method="POST">

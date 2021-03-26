@@ -10125,3 +10125,19 @@ a.text-dark:focus {
 .btn {
     margin-top: 10px;
 }
+
+.title {
+    text-align: center;
+    padding-top: 50px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.title-line {
+    width: 75%;
+    height: 2px;
+    background-color: grey;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
